@@ -36,3 +36,29 @@ const myFunction = function(){     // function
 }
 
 console.log(typeof heros); // to find type of datatype
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Types of Memory :
+// Stack (Primitive)  => copy of memory , Heap (Non-Primitive) => refered to main memory
+
+let myYoutubeName ="udayveersingh"
+
+let anotherName = myYoutubeName
+anotherName = "chaiaurcode"
+
+console.log(myYoutubeName);
+console.log(anotherName);
+
+let userOne = {
+    email: "abc@gmail.com",
+    age: 18
+}
+
+let userTwo = userOne
+
+userTwo.email = "udayveer@gmail.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
