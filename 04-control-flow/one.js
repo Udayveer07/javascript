@@ -16,7 +16,8 @@ if (2 === "2") {
     console.log("Not Found");
 }
 
-// <, >, <=, >=, ==, !=, ===, !==  types of operators in conditions 
+// types of operators in conditions 
+// <, >, <=, >=, ==, !=, ===(used for type checking), !== 
 
 const score = 200
 
