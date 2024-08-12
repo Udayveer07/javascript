@@ -1,0 +1,5 @@
+// while loop
+
+while (condition) {
+    
+}
