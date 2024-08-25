@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code </title>
+</head>
+<body style="background-color: black; color: beige;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}` // would traverse the tree fully 
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("C++")
+    addLanguage("Typescript")
+
+    // same thing in an optimised way
+
+    function addOpptiLanguage(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addOpptiLanguage("Java")
+    addOpptiLanguage("React")
+    addOpptiLanguage("Node")
+
+    // Edit a Element
+    const secondLang = document.querySelector("li:nth-child(2)")
+
+    // secondLang.innerHTML = "MOJO"
+    // secondLang.outerHTML = "<li> Uday Lang </li>"
+
+    const myNewli = document.createElement('li')
+    myNewli.textContent = "MOJO"
+    secondLang.replaceWith(myNewli)
+    
+    // Example 2
+    const firstLng = document.querySelector("li:nth-child(1)")
+    const myNewLng = document.createElement('li')
+    myNewLng.textContent = "HTML"
+    firstLng.replaceWith(myNewLng)
+
+    // Remove
+    const lastLng = document.querySelector("li:last-child")
+    lastLng.remove()
+
+</script>
+</html>
