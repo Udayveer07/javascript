@@ -18,4 +18,57 @@
         </ul>
    </div>
 </body>
+<script>
+    // old approach less options
+    // document.getElementById('owl').onclick = fuction (){
+    //     alert('owl clicked')
+    // }
+
+    // best approach
+    document.getElementById('owl').addEventListener('click', function(e){
+       console.log(e);
+       
+    }, false)
+
+    // Events to Study
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY,
+    // altkey, ctrlkey, shiftkey, keycode
+
+    //  Event propagation 
+
+    // (false is event bubbling) goes bottom to top
+    document.getElementById('owl').addEventListener('click', function(e){
+       console.log('owl clicked');  
+       e.stopPropagation() // used to stop event from propagating
+    }, false)
+    document.getElementById('images').addEventListener('click', function(e){
+       console.log('clicked inside the ul');  
+    }, false)
+
+    // (true is event capturing) goes top to bottom
+    document.getElementById('owl').addEventListener('click', function(e){
+       console.log('owl clicked');  
+    }, true)
+    document.getElementById('images').addEventListener('click', function(e){
+       console.log('clicked inside the ul');  
+    }, true)
+
+    document.getElementById('google').addEventListener('click', function(e){
+        console.log("google clicked");
+        e.preventDefault()
+        e.stopPropagation()
+    },false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    }, false)
+
+</script>
 </html>
