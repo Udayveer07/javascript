@@ -15,19 +15,17 @@
        console.log("Udayveer");
      }
 
-     let intervalId = 1;
+     let intervalId
 
     document.querySelector('#start').addEventListener('click', function(){
-        if(intervalId){
+        if(!intervalId){
             intervalId = setInterval(sayname, 1000);
         }
     })
 
     document.querySelector('#stop').addEventListener('click', function(){
-        if(intervalId){
             clearInterval(intervalId);
             intervalId = null;
-        }
     })
 
 </script>
