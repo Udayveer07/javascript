@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub ID Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .id-card {
+            width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .id-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .id-card p {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="id-card">
+        <h2>GitHub ID Card</h2>
+        <img id="avatar" alt="User Avatar">
+        <p><strong>Name:</strong> <span id="name">-</span></p>
+        <p><strong>Bio:</strong> <span id="bio">-</span></p>
+        <button onclick="getUserInfo()">Get Info</button>
+    </div>
+
+    <script>
+        function getUserInfo() {
+            const requestUrl = "https://api.github.com/users/Udayveer07";
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', requestUrl);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(this.responseText); // Convert string to JSON
+                    document.getElementById('name').innerText = data.name || 'N/A';
+                    document.getElementById('bio').innerText = data.bio || 'N/A';
+                    document.getElementById('avatar').src = data.avatar_url;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
